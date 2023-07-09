@@ -7,6 +7,7 @@ use App\Models\User;
 use Hashids\Hashids;
 use App\Models\user_file;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rules\File;
@@ -23,8 +24,8 @@ class FileController extends Controller
         try {
             if ($request->hasFile('user_file')) {
                 $file = $request->file('user_file');
-                $allowExtensions = ['png', 'jpg', 'gif'];
-                $allowMimeType = ['image/jpeg', 'image/png', 'image/gif'];
+                $allowExtensions = ['png', 'jpg', 'gif', 'apng', 'avif', 'jpeg', 'svg', 'webp' . 'bmp', 'ico', 'TIFF', 'mp3', 'mp4', 'avi', 'flv', 'webm', 'wmv', 'mov', 'AVCHD', 'ogg'];
+                $allowMimeType = ['image/jpeg', 'image/png', 'image/gif', 'image/apng', 'image/avif', 'image/jpeg', 'image/svg', 'image/webp' . 'image/bmp', 'image/x-icon', 'image/tiff', 'video/mp4', 'video/x-msvideo', 'video/x-flv', 'video/webm', 'video/wmv', 'video/quicktime', 'video/avchd-stream', 'audio/ogg'];
                 $MimeType = $file->getMimeType();
                 $maximumSize = 2000000;
                 if (in_array($file->getClientOriginalExtension(), $allowExtensions) && in_array($MimeType, $allowMimeType)) {
@@ -38,8 +39,6 @@ class FileController extends Controller
                         // generate short url
                         $generate = bin2hex(random_bytes(3));
                         $generate = substr($generate, 0, 5);
-
-
                         $newId = new user_file([
                             'file_id' => $generate,
                             'real_link' => $filename
@@ -74,7 +73,7 @@ class FileController extends Controller
         if ($find) {
             foreach ($find as $finds) {
                 $result = $finds->real_link;
-                return redirect("http://localhost:8000/uploads/{$result}");
+                return response()->download("uploads/{$result}");
             }
         } else {
             abort(403);
