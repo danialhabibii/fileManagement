@@ -1,0 +1,60 @@
+* {
+    color: #fff;
+    font-family: "Belanosima", sans-serif;
+}
+body {
+    background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(22, 22, 52, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+    );
+}
+
+.upload_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.upload_file_form_title {
+    font-size: 133%;
+}
+.upload_file_form_text{
+}
+.file_input {
+    background: darkcyan;
+    border-radius: 2px;
+    border: none;
+}
+.upload_forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.upload_form_btn {
+    color: black;
+    border: none;
+    background: cornsilk;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 2px 4px;
+    transition: 0.3s all;
+}
+.upload_form_btn:hover {
+    background: #c2c2c2;
+    transform: scale(1.1);
+}
+.Session_Message {
+    text-align: center;
+}
+
+
+/* admin */
+.admin_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
