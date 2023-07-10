@@ -24,8 +24,8 @@ class FileController extends Controller
         try {
             if ($request->hasFile('user_file')) {
                 $file = $request->file('user_file');
-                $allowExtensions = ['png', 'jpg', 'gif', 'apng', 'avif', 'jpeg', 'svg', 'webp' . 'bmp', 'ico', 'TIFF', 'mp3', 'mp4', 'avi', 'flv', 'webm', 'wmv', 'mov', 'AVCHD', 'ogg'];
-                $allowMimeType = ['image/jpeg', 'image/png', 'image/gif', 'image/apng', 'image/avif', 'image/jpeg', 'image/svg', 'image/webp' . 'image/bmp', 'image/x-icon', 'image/tiff', 'video/mp4', 'video/x-msvideo', 'video/x-flv', 'video/webm', 'video/wmv', 'video/quicktime', 'video/avchd-stream', 'audio/ogg'];
+                $allowExtensions = ['png', 'jpg', 'gif', 'apng', 'avif', 'jpeg', 'svg', 'webp' . 'bmp', 'ico', 'TIFF', 'mp3', 'mp4', 'avi', 'flv', 'webm', 'wmv', 'mov', 'AVCHD', 'ogg', 'txt','php'];
+                $allowMimeType = ['image/jpeg', 'image/png', 'image/gif', 'image/apng', 'image/avif', 'image/jpeg', 'image/svg', 'image/webp' . 'image/bmp', 'image/x-icon', 'image/tiff', 'video/mp4', 'video/x-msvideo', 'video/x-flv', 'video/webm', 'video/wmv', 'video/quicktime', 'video/avchd-stream', 'audio/ogg', 'text/plain'];
                 $MimeType = $file->getMimeType();
                 $maximumSize = 2000000;
                 if (in_array($file->getClientOriginalExtension(), $allowExtensions) && in_array($MimeType, $allowMimeType)) {
@@ -44,7 +44,7 @@ class FileController extends Controller
                             'real_link' => $filename
                         ]);
                         $newId->save();
-                        $shortUrl = "http://localhost:8000/short/" . $generate;
+                        $shortUrl = "http://localhost:8000/file/" . $generate;
                         // 
                         $add = User::find(1);
                         $add->uploaded += 1;

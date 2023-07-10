@@ -18,9 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FileController::class, 'index'])->name('index');
 Route::post('/', [FileController::class, 'uploads'])->name('uploads');
 
-Route::get('/short/{id}', [FileController::class, 'find'])->name('find');
+Route::get('/file/{id}', [FileController::class, 'find'])->name('find');
 
 
+Route::get('/live',function(){
+return view('liv');
+});
 
 
 
