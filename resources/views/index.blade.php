@@ -1,34 +1,3 @@
-{{-- <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style/app.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
-    <title>Document</title>
-    @livewireStyles()
-</head>
-
-<body>
-    @if (session('success'))
-        <h2 class="Session_Message"> {{ session('success') }}</h2>
-    @endif
-    @if (session('warning'))
-        <h2 class="Session_Message"> {{ session('warning') }}</h2>
-    @endif
-    {{-- Form Code --}}
-    {{-- <div class="upload_form">
-        <h3 class="upload_file_form_title">Upload Your Files</h3>
-        <h4 class="upload_file_form_text">Easy and free way to share your data</h4>
-        @livewire('upload-file')
-        <h3 class="uploaded">{{ $uploaded->uploaded }} <br> File uploaded</h3>
-    </div>
-    @livewireScripts()
-</body> --}}
-
 <html lang="en">
 
 <head>
